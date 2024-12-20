@@ -1,11 +1,13 @@
 from flask import Flask, jsonify
 from sqlalchemy import create_engine, text
+import os 
+
 
 # Flask App Initialization
 app = Flask(__name__)
 
 # Database configuration
-DATABASE_URL = "postgresql://postgres:123@localhost:5432/wordpress"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Create sqlalchemy engine
 engine = create_engine(DATABASE_URL)
