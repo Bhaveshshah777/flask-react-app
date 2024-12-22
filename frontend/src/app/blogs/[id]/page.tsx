@@ -17,8 +17,6 @@ export default async function BlogPage({
 
     const blog = await response.json();
 
-    console.log("Params:", params);
-
     return (
       <div>
         <h1>{blog.title}</h1>
@@ -26,10 +24,10 @@ export default async function BlogPage({
         <a href={blog.link} target="_blank" rel="noopener noreferrer">
           Visit Link
         </a>
+        <Link href="/blogs">Back</Link>
       </div>
     );
   } catch (error) {
-    console.error("Error fetching blog:", error);
     return (
       <div>
         <h1>
