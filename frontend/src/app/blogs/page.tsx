@@ -1,5 +1,3 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import { BASE_API_URL } from "@/constant";
 
 export default async function blogs() {
