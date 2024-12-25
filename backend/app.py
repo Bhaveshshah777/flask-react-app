@@ -75,8 +75,8 @@ def create_blog():
         return jsonify({"error": str(e)}), 500
     
 
-# Endpoint 3: Edit Blogs
-@app.route('/blog/update/<int:id>', methods=['PUT'])
+# Endpoint 4: Edit Blogs
+@app.route('/blog/<int:id>', methods=['PUT'])
 def update_blog(id):
     try:
         data = request.get_json()
