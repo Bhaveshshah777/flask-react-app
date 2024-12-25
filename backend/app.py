@@ -54,7 +54,7 @@ def get_blog(id):
     
 
 # Endpoint 3: Create New Blogs
-@app.route('/blogs/create', methods=['POST'])
+@app.route('/blogs', methods=['POST'])
 def create_blog():
     try:
         data = request.get_json()
@@ -76,7 +76,7 @@ def create_blog():
     
 
 # Endpoint 3: Edit Blogs
-@app.route('/blogs/update/<int:id>', methods=['PUT'])
+@app.route('/blog/update/<int:id>', methods=['PUT'])
 def update_blog(id):
     try:
         data = request.get_json()
