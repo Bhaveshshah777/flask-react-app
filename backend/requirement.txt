@@ -5,3 +5,4 @@ flask_jwt_extended
 python_decouple
 psycopg2-binary
 python-dotenv
+flask-cors

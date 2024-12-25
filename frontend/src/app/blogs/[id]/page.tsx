@@ -22,7 +22,7 @@ export default async function BlogPage({
         <h1>{blog.title}</h1>
         <p>{blog.content}</p>
         <a href={blog.link} target="_blank" rel="noopener noreferrer">
-          Visit Link
+          View Sources
         </a>
         <Link href="/blogs">Back</Link>
       </div>

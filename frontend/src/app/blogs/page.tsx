@@ -1,9 +1,10 @@
 import { BASE_API_URL } from "@/constant";
 import Link from "next/link";
+import '../globals.css';  // Import the CSS file
 
 export default async function blogs() {
   try {
-    //Getting blogs from the backend
+    // Getting blogs from the backend
     const raw = await fetch(BASE_API_URL + "blog");
 
     if (!raw.ok) {
@@ -18,6 +19,20 @@ export default async function blogs() {
 
     return (
       <div>
+        <div className="button-container">
+          <Link href="/">
+            <button className="button button-back">
+              Back To Home Page
+            </button>
+          </Link>
+        </div>
+        <div className="button-container">
+          <Link href="/blogs/create">
+            <button className="button button-create">
+              Create New Blog
+            </button>
+          </Link>
+        </div>
         <h1>Blogs</h1>
         <table>
           <thead>
@@ -34,14 +49,13 @@ export default async function blogs() {
                 <td>{blog.title}</td>
                 <td>
                   <Link href={`/blogs/${blog.id}`}>View</Link>
+                  <Link href={`/blog/update${blog.id}`}>Edit</Link>
+                  <Link href={`/blog/delete${blog.id}`}>Delete</Link>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div style={{ marginTop: "1em" }}>
-          <Link href="/">Home</Link>
-        </div>
       </div>
     );
   } catch (error) {
