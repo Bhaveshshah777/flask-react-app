@@ -18,7 +18,7 @@ export default function CreateBlog() {
 
         try {
             // API call to create a new blog
-            const response = await fetch(BASE_API_URL + "/blogs/create", {
+            const response = await fetch(BASE_API_URL + "/blogs", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ title, content, link }),
