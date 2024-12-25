@@ -18,6 +18,18 @@ export default async function blogs() {
 
     return (
       <div>
+        <div style={{ marginTop: "1em" }}>
+          <Link href="/"><button style={{ padding: "5px 20px", backgroundColor: "black", color: "white" }}>
+            Back To Home Page
+          </button>
+          </Link>
+        </div>
+        <div style={{ marginTop: "1em" }}>
+          <Link href="/blogs/create"><button style={{ padding: "5px 20px", backgroundColor: "green", color: "white" }}>
+            Create New Blog
+          </button>
+          </Link>
+        </div>
         <h1>Blogs</h1>
         <table>
           <thead>
@@ -34,14 +46,13 @@ export default async function blogs() {
                 <td>{blog.title}</td>
                 <td>
                   <Link href={`/blogs/${blog.id}`}>View</Link>
+                  <Link href={`/blogs/update${blog.id}`}>Edit</Link>
+                  <Link href={`/blogs/delete${blog.id}`}>Delete</Link>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div style={{ marginTop: "1em" }}>
-          <Link href="/">Home</Link>
-        </div>
       </div>
     );
   } catch (error) {
