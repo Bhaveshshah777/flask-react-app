@@ -12,7 +12,7 @@ export default async function BlogPage({
 
     // Check if the response is successful
     if (!response.ok) {
-      throw new Error(`Failed to fetch blog with id: ${params.id}`);
+      alert(`Failed to fetch blog with id: ${params.id}`);
     }
 
     const blog = await response.json();

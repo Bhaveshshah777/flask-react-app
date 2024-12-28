@@ -80,7 +80,7 @@ def create_blog():
 def update_blog(id):
     try:
         data = request.get_json()
-
+        id= data.get("id")
         title= data.get("title")
         content= data.get("content")
         link= data.get("link")
@@ -92,10 +92,9 @@ def update_blog(id):
             query = text("""UPDATE blogs 
                 SET title = :title, content = :content, link = :link 
                 WHERE id = :id""")
-            result = connection.execute(query, {"title": title, "content": content, "link": link})
-            connection.commit()
+            result = connection.execute(query, {"id": id, "title": title, "content": content, "link": link})
             
-        return jsonify({"message": "blog created successfully"}), 201
+        return jsonify({"message": "blog updated successfully"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
