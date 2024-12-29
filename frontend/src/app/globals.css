@@ -36,44 +36,38 @@ textarea {
 /* Button styling */
 button {
   display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
   border: none;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #0056b3;
+.actionBtnContainer {
+  display: flex;
+  justify-content: start;
 }
 
-/* style for buttons */
-.button {
-  padding: 5px 20px;
+.actionBtn {
+  margin: 0.2rem 0.5rem;
+  padding: 0.7rem 1rem;
+}
+
+.primaryBtn {
+  background-color: #0070f3;
   color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
-.button-back {
-  background-color: black;
-  width: fit-content;
-  margin-top: 1em;
-  padding: 5px 20px;
+.primaryBtn:hover {
+  background-color: #0352ac;
 }
 
-.button-create {
-  background-color: green;
+.secondaryBtn {
+  background-color: #6a6a6a;
+  color: white;
 }
 
-.button-container {
-  width: fit-content;
-  margin-top: 1em;
-  padding: 5px 20px;
+.secondaryBtn:hover {
+  background-color: #434343;
 }
 
 /*heading style*/

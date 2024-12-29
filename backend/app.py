@@ -80,7 +80,7 @@ def create_blog():
 def update_blog(id):
     try:
         data = request.get_json()
-        id= data.get("id")
+        id= id
         title= data.get("title")
         content= data.get("content")
         link= data.get("link")
