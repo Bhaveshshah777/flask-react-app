@@ -1,6 +1,6 @@
 import { BASE_API_URL } from "@/constant";
 import Link from "next/link";
-import '../globals.css';  // Import the CSS file
+import "../globals.css"; // Import the CSS file
 
 export default async function blogs() {
   try {
@@ -21,16 +21,10 @@ export default async function blogs() {
       <div>
         <div className="button-container">
           <Link href="/">
-            <button className="button button-back">
-              Back To Home Page
-            </button>
+            <button className="button button-back">Back To Home Page</button>
           </Link>
-        </div>
-        <div className="button-container">
           <Link href="/blogs/create">
-            <button className="button button-create">
-              Create New Blog
-            </button>
+            <button className="button button-create">Create New Blog</button>
           </Link>
         </div>
         <h1>Blogs</h1>
@@ -49,8 +43,8 @@ export default async function blogs() {
                 <td>{blog.title}</td>
                 <td>
                   <Link href={`/blogs/${blog.id}`}>View</Link>
-                  <Link href={`/blog/update${blog.id}`}>Edit</Link>
-                  <Link href={`/blog/delete${blog.id}`}>Delete</Link>
+                  <Link href={`/blogs/update/${blog.id}`}>Edit</Link>
+                  <Link href={`/blogs/delete/${blog.id}`}>Delete</Link>
                 </td>
               </tr>
             ))}
