@@ -50,6 +50,7 @@ button {
 .actionBtn {
   margin: 0.2rem 0.5rem;
   padding: 0.7rem 1rem;
+  border-radius: 5px;
 }
 
 .primaryBtn {
@@ -68,6 +69,15 @@ button {
 
 .secondaryBtn:hover {
   background-color: #434343;
+}
+
+.dangerBtn {
+  background-color: #f44336;
+  color: white;
+}
+
+.dangerBtn:hover {
+  background-color: #d32f2f;
 }
 
 /*heading style*/

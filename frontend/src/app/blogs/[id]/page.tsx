@@ -24,7 +24,9 @@ export default async function BlogPage({
         <a href={blog.link} target="_blank" rel="noopener noreferrer">
           View Sources
         </a>
-        <Link href="/blogs">Back</Link>
+        <Link href="/blogs" className="actionBtn secondaryBtn">
+          Back
+        </Link>
       </div>
     );
   } catch (error) {

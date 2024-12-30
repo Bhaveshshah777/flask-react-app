@@ -13,7 +13,7 @@ export default function UpdateBlog() {
   const [link, setLink] = useState("");
 
   useEffect(() => {
-    async function fetchPost() {
+    const fetchPost = async () => {
       try {
         const response = await fetch(`${BASE_API_URL}/blog/${id}`);
         const data = await response.json();
@@ -24,7 +24,7 @@ export default function UpdateBlog() {
       } catch (error) {
         console.error("Error fetching blog post:", error);
       }
-    }
+    };
 
     if (id) {
       fetchPost();
