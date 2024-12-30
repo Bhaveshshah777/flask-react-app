@@ -1,21 +1,48 @@
+"use client";
+
 import { BASE_API_URL } from "@/constant";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import "../globals.css"; // Import the CSS file
 
-export default async function blogs() {
+export default function blogs() {
   try {
+    let [blogs, setBlogs] = useState([]);
+
+    const fetchBlogs = async () => {
+      const raw = await fetch(BASE_API_URL + "blog");
+      if (!raw.ok) {
+        return (
+          <div>
+            <h1>Some Issue with the API</h1>
+          </div>
+        );
+      }
+      const data = await raw.json();
+      setBlogs(data);
+    };
+
+    useEffect(() => {
+      fetchBlogs();
+    }, []);
+
     // Getting blogs from the backend
-    const raw = await fetch(BASE_API_URL + "blog");
 
-    if (!raw.ok) {
-      return (
-        <div>
-          <h1>Some Issue with the API</h1>
-        </div>
-      );
-    }
+    // Function to handle delete
+    const handleDelete = (id: number) => {
+      console.log(id);
 
-    const blogs = await raw.json();
+      fetch(`${BASE_API_URL}blog`, {
+        method: "DElETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ids: [id] }),
+      }).then(() => {
+        alert("Blog deleted succesfully!");
+        fetchBlogs();
+      });
+    };
 
     return (
       <div>
@@ -33,7 +60,7 @@ export default async function blogs() {
             <tr>
               <th>Sr</th>
               <th>Titles</th>
-              <th>Actions</th>
+              <th colSpan={3}>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -43,8 +70,24 @@ export default async function blogs() {
                 <td>{blog.title}</td>
                 <td>
                   <Link href={`/blogs/${blog.id}`}>View</Link>
-                  <Link href={`/blogs/update/${blog.id}`}>Edit</Link>
-                  <Link href={`/blogs/delete/${blog.id}`}>Delete</Link>
+                </td>
+                <td>
+                  <Link
+                    href={`/blogs/update/${blog.id}`}
+                    className="actionBtn primaryBtn"
+                  >
+                    Edit
+                  </Link>
+                </td>
+                <td>
+                  <button
+                    onClick={() => {
+                      handleDelete(blog.id);
+                    }}
+                    className="actionBtn dangerBtn"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

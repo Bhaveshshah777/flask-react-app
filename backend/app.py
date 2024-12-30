@@ -6,7 +6,7 @@ from flask_cors import CORS  # Import CORS
 # Flask App Initialization
 app = Flask(__name__)
 
-CORS(app, methods=["GET", "POST", "PUT"])
+CORS(app, methods=["GET", "POST", "PUT", "DELETE"])
 
 # Database configuration
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -54,7 +54,7 @@ def get_blog(id):
     
 
 # Endpoint 3: Create New Blogs
-@app.route('/blogs', methods=['POST'])
+@app.route('/blog', methods=['POST'])
 def create_blog():
     try:
         data = request.get_json()
@@ -98,6 +98,21 @@ def update_blog(id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
+#Delete blog endpoint
+@app.route('/blog', methods=['DELETE'])
+def delete_blogs():
+    try:
+        data = request.get_json()
+        ids = data.get("ids", [])
+        print(ids)
+        #deleting multiple blogs
+        if len(ids) > 0:
+            with engine.begin() as connection:
+                query = text("""DELETE FROM blogs WHERE id IN :ids""")
+                result = connection.execute(query, {"ids": tuple(ids)})
+                return jsonify({"message": "blogs deleted successfully"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
