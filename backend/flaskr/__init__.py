@@ -16,7 +16,7 @@ engine = create_engine(DATABASE_URL)
 
 @app.route('/', methods=['GET'])
 def home():
-    return "Hello World!"
+    return "Hello World Unique!"
 
 # Endpoint 1: Select only id, title
 @app.route('/blog', methods=['GET'])
