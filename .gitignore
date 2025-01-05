@@ -1,5 +1,6 @@
+
 #backend files
-backend/__pycache__
+backend/flaskr/__pycache__
 backend/.venv
 backend/.flaskenv
 
