@@ -1,125 +1,45 @@
-/* Form container styling */
-form {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+body {
+  margin: 0; /* Remove default body margin */
+  height: 100vh; /* Make body take up the full viewport height */
+  display: flex; /* Use flexbox for vertical centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
-/* Label styling */
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-/* Input and textarea styling */
-input,
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-/* Textarea specific styling */
-textarea {
-  height: 100px;
-  resize: vertical;
-}
-
-/* Button styling */
-button {
-  display: block;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.actionBtnContainer {
-  display: flex;
-  justify-content: start;
-}
-
-.actionBtn {
-  margin: 0.2rem 0.5rem;
-  padding: 0.7rem 1rem;
-  border-radius: 5px;
-}
-
-.primaryBtn {
-  background-color: #0070f3;
-  color: white;
-}
-
-.primaryBtn:hover {
-  background-color: #0352ac;
-}
-
-.secondaryBtn {
-  background-color: #6a6a6a;
-  color: white;
-}
-
-.secondaryBtn:hover {
-  background-color: #434343;
-}
-
-.dangerBtn {
-  background-color: #f44336;
-  color: white;
-}
-
-.dangerBtn:hover {
-  background-color: #d32f2f;
-}
-
-/*heading style*/
-
-.heading {
-  font-size: 2em;
-  margin-top: 1em;
-}
-
-
-table {
-  width: 100%;
-  border: 1px solid #6e6d6d;
-}
-
-th,
-td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #f2f2f2;
+.main{
   text-align: center;
 }
 
-tr:hover {
-  background-color: #f5f5f5;
+.Hero_Greet {
+  text-align: center;
+  font-size: 3vw;
+  color:rgb(87, 87, 87);
+  animation-name: fadein;
+  animation-duration: 2s;
 }
 
-a {
-  text-decoration: none;
-  margin: 0 2em;
+@keyframes fadein{
+  from { color: rgba(87, 87, 87, 0);}
+  to { color: rgba(87, 87, 87, 1);}
 }
 
-.link {
-  margin-right: 10px;
-  color: #0070f3;
-  text-decoration: none;
+.sign-in {
+  display: inline-flex; /* Use inline-flex for button-like behavior */
+  align-items: center; /* Vertically align icon and text */
+  justify-content: center; /* Center content horizontally */
+  padding: 10px 20px; /* Add padding for button size */
+  border: 1px solid #3c3c3c; /* Add a border */
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer; /* Change cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  margin-top: 20px; /* Add space from the greeting */
 }
 
-.link:hover {
-  text-decoration: underline;
+.sign-in:hover {
+  background-color: #e0e0e0; /* Slightly darker background on hover */
+}
+
+.sign-in img {
+  margin-right: 10px; /* Add space between icon and text */
+  height: 20px; /* Adjust icon size as needed */
 }

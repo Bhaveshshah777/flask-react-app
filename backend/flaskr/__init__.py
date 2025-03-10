@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from sqlalchemy import create_engine, text
 import os 
 from flask_cors import CORS  # Import CORS
+from flask_bcrypt import Bcrypt
 
 # Flask App Initialization
 app = Flask(__name__)
@@ -14,9 +15,12 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 # Create sqlalchemy engine
 engine = create_engine(DATABASE_URL)
 
+#create bcrypt instance
+bcrypt = Bcrypt(app)
+
 @app.route('/', methods=['GET'])
 def home():
-    return "Hello World Unique!"
+    return "Hello World!"
 
 # Endpoint 1: Select only id, title
 @app.route('/blog', methods=['GET'])
@@ -28,6 +32,11 @@ def get_basic_blogs():
             return jsonify(blogs), 200
     except Exception as e: 
         return jsonify({"error": str(e)}), 500
+
+#Register new users
+@app.route('/auth/register', methods=['POST'])
+def register_users():
+    data = request.json()
 
 
 # Endpoint 2: Select all columns including content
